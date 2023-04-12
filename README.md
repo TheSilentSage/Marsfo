@@ -20,4 +20,5 @@ Implement Advanced search:
     -> Creating Search Bar and Advanced Search Dialouge.
 Implement interface for scroll recycler view and update outside:
     Images are on seperate recycler view. The datas depending on the image is outside recycler view. It does not move along with recycler view but is updated as recyclerView is updated
+Implement Zoom image for each item.
 Migrate to Fragments
