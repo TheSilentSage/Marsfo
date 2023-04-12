@@ -79,7 +79,7 @@
             app:layout_constraintStart_toEndOf="@+id/sol_days"
             app:layout_constraintTop_toTopOf="@+id/sol_days"
             app:layout_constraintVertical_bias="0.6"
-            tools:text="Sol" />
+            android:text="Sol" />
 
         <TextView
             android:id="@+id/earth_date"
