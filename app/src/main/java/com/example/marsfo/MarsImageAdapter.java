@@ -35,9 +35,9 @@ public class MarsImageAdapter extends RecyclerView.Adapter<MarsImageAdapter.Mars
 
 
         Picasso.get()
-//                .load(currentImageobject.image_url)
-//                .load("http://mars.jpl.nasa.gov/msl-raw-images/proj/msl/redops/ods/surface/sol/01000/opgs/edr/fcam/FLB_486265257EDR_F0481570FHAZ00323M_.JPG")
-                .load("https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8&w=1000&q=80")
+                .load(currentImageobject.image_url)
+                .placeholder(R.drawable.placeholder_img)
+                .resize(800, 800)
                 .into(holder.imageView);
         holder.sol_days.setText(currentImageobject.solDay);
         holder.cameraName.setText(currentImageobject.cameraName);

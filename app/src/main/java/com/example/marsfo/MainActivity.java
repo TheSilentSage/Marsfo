@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(llm);
         recyclerView.setAdapter(marsImageAdapter);
         search();
+        getSupportActionBar().hide();
 
 
     }
@@ -125,7 +126,7 @@ public class MainActivity extends AppCompatActivity {
             JSONObject photoCameraObject = photoObject.getJSONObject("camera");
             JSONObject photoRoverObject = photoObject.getJSONObject("rover");
             String solDay = photoObject.getString("sol");
-            String image_url = photoObject.getString("img_src");
+            String image_url = photoObject.getString("img_src").replace("http","https");
             String earthDate = photoObject.getString("earth_date");
             String cameraName = photoCameraObject.getString("name");
             String fullCameraName = photoCameraObject.getString("full_name");
