@@ -6,11 +6,11 @@ public class MarsImage {
     String solDay;
     String cameraName;
     String fullCameraName;
-    URL image_url;
+    String image_url;
     String earthDate;
     String roverName;
 
-    public MarsImage(String solDay, String cameraName, String fullCameraName, URL image_url, String earthDate, String roverName) {
+    public MarsImage(String solDay, String cameraName, String fullCameraName, String image_url, String earthDate, String roverName) {
         this.solDay = solDay;
         this.cameraName = cameraName;
         this.fullCameraName = fullCameraName;
@@ -43,11 +43,11 @@ public class MarsImage {
         this.fullCameraName = fullCameraName;
     }
 
-    public URL getImage_url() {
+    public String getImage_url() {
         return image_url;
     }
 
-    public void setImage_url(URL image_url) {
+    public void setImage_url(String image_url) {
         this.image_url = image_url;
     }
 

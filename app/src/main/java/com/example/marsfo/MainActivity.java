@@ -25,6 +25,7 @@ import java.util.concurrent.Executors;
 
 public class MainActivity extends AppCompatActivity {
     ArrayList<MarsImage> marsImagesList = new ArrayList<>();
+    MarsImageAdapter marsImageAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
         RecyclerView recyclerView = findViewById(R.id.imagerecyclerView);
         LinearLayoutManager llm = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
-        MarsImageAdapter marsImageAdapter = new MarsImageAdapter();
+        marsImageAdapter = new MarsImageAdapter(this,marsImagesList);
         recyclerView.setLayoutManager(llm);
         recyclerView.setAdapter(marsImageAdapter);
         search();
@@ -59,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
                 handler.post(new Runnable() {
                     @Override
                     public void run() {
-                        // Ui work
+                        marsImageAdapter.notifyDataSetChanged();
                     }
                 });
             }
@@ -70,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
 
         {
             try {
-                url = new URL("https://api.nasa.gov/mars-photos/api/v1/rovers/Curiosity/photos?sol=2000&camera=fhaz&page=1&api_key=DEMO_KEY");
+                url = new URL("https://api.nasa.gov/mars-photos/api/v1/rovers/Curiosity/photos?sol=1000&page=1&api_key=DEMO_KEY");
             } catch (MalformedURLException e) {
                 throw new RuntimeException(e);
             }
@@ -124,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
             JSONObject photoCameraObject = photoObject.getJSONObject("camera");
             JSONObject photoRoverObject = photoObject.getJSONObject("rover");
             String solDay = photoObject.getString("sol");
-            URL image_url = new URL(photoObject.getString("img_src"));
+            String image_url = photoObject.getString("img_src");
             String earthDate = photoObject.getString("earth_date");
             String cameraName = photoCameraObject.getString("name");
             String fullCameraName = photoCameraObject.getString("full_name");
